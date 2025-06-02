@@ -1,0 +1,38 @@
+.inputGroup {
+  margin-bottom: 20px;
+  width: 400px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.submitButton {
+  background-color: #d4a373;
+  color: white !important;
+  padding: 14px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 400px;
+  transition: background-color 0.3s ease;
+  height: 48px !important;
+}
+
+.submitButton:hover {
+  background-color: #b18253 !important;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

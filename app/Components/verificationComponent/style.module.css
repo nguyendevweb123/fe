@@ -1,0 +1,47 @@
+.container {
+  padding: 30px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 50px auto;
+  transition: transform 0.3s ease;
+}
+
+.title {
+  margin-bottom: 16px;
+}
+
+.codeBox {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #e6f4ff;
+  border: 1px dashed #1890ff;
+  font-family: monospace;
+  font-size: 24px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  margin-top: 8px;
+}
+
+.button {
+  margin-top: 10px;
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+}

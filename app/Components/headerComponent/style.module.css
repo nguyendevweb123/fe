@@ -1,0 +1,21 @@
+.logo {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.accessTitle {
+  font-weight: bold;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: center;
+  
+}
+
+.adminAccess {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: flex-start;
+}
