@@ -18,7 +18,7 @@ const LoginForm = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/users/login', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
