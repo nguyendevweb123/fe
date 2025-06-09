@@ -15,21 +15,20 @@ type ProductFormType = Omit<Product, '_id' | 'createdAt' | 'updatedAt' | 'image'
 // Helper để xử lý URL ảnh trả về từ backend
 const getImageUrl = (image: string): string => {
   if (!image) return '';
-  const isFullUrl = image.startsWith('http://') || image.startsWith('https://');
 
-  if (isFullUrl) {
-    // Nếu đang dùng localhost trong full URL → thay thế bằng API URL thật
-    if (image.includes('localhost')) {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
-      return image.replace('http://localhost:3001', apiUrl);
-    }
-    return image;
+  const apiUrl = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
+
+  // Nếu là URL đầy đủ (http hoặc https)
+  if (image.startsWith('http://') || image.startsWith('https://')) {
+    // Nếu là localhost → thay bằng domain thật
+    return image.includes('localhost') ? image.replace('http://localhost:3001', apiUrl) : image;
   }
 
-  const base = process.env.NEXT_PUBLIC_API_URL || '';
-  const apiUrl = base.endsWith('/') ? base.slice(0, -1) : base;
-  return `${apiUrl}/uploads/${image}`;
+  // Nếu chỉ là `/uploads/xxx.jpg` hoặc `xxx.jpg` → ghép lại URL đầy đủ
+  const normalizedImage = image.startsWith('/uploads') ? image : `/uploads/${image}`;
+  return `${apiUrl}${normalizedImage}`;
 };
+
 
 export default function ProductForm({ product }: Props) {
   const [form, setForm] = useState<ProductFormType>({
