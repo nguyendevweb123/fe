@@ -18,6 +18,7 @@ const LoginForm = () => {
     setIsLoading(true);
 
     try {
+      console.log('🔗 API URL:', `${process.env.NEXT_PUBLIC_API_URL}/users/login`);
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login`, {
         method: 'POST',
         headers: {
