@@ -1,6 +1,6 @@
 'use client';
 
-import styles from './style.module.css';
+import styles from "./style.module.css";
 import { useState, useEffect, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { createProduct, updateProduct } from '../../lib/api';
@@ -11,24 +11,6 @@ type Props = {
 };
 
 type ProductFormType = Omit<Product, '_id' | 'createdAt' | 'updatedAt' | 'image'>;
-
-// Helper để xử lý URL ảnh trả về từ backend
-const getImageUrl = (image: string): string => {
-  if (!image) return '';
-
-  const apiUrl = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
-
-  // Nếu là URL đầy đủ (http hoặc https)
-  if (image.startsWith('http://') || image.startsWith('https://')) {
-    // Nếu là localhost → thay bằng domain thật
-    return image.includes('localhost') ? image.replace('http://localhost:3001', apiUrl) : image;
-  }
-
-  // Nếu chỉ là `/uploads/xxx.jpg` hoặc `xxx.jpg` → ghép lại URL đầy đủ
-  const normalizedImage = image.startsWith('/uploads') ? image : `/uploads/${image}`;
-  return `${apiUrl}${normalizedImage}`;
-};
-
 
 export default function ProductForm({ product }: Props) {
   const [form, setForm] = useState<ProductFormType>({
@@ -54,10 +36,15 @@ export default function ProductForm({ product }: Props) {
         status: status || 'active',
       });
 
-      // Xử lý preview ảnh
-      if (image && typeof image === 'string') {
-        setPreviewUrl(getImageUrl(image));
+      // ✅ Nếu có ảnh từ server thì hiển thị preview ảnh hiện tại
+      if (image) {
+        const isFullUrl = typeof image === 'string' && (image.startsWith('http://') || image.startsWith('https://'));
+        setPreviewUrl(isFullUrl ? image : `${process.env.NEXT_PUBLIC_API_URL}/uploads/${image}`);
       }
+
+
+
+
     }
   }, [product]);
 
@@ -93,8 +80,8 @@ export default function ProductForm({ product }: Props) {
 
       router.push('/product');
     } catch (error) {
-      console.error('❌ Lỗi khi gửi form:', error);
-      alert('Đã xảy ra lỗi khi tạo/cập nhật sản phẩm.');
+      console.error("❌ Lỗi khi gửi form:", error);
+      alert("Đã xảy ra lỗi khi tạo/cập nhật sản phẩm.");
     }
   };
 
@@ -147,6 +134,7 @@ export default function ProductForm({ product }: Props) {
         className={styles.formInput}
       />
 
+      {/* ✅ Hiển thị ảnh preview nếu có */}
       {previewUrl && (
         <div className={styles.imagePreviewContainer}>
           <img src={previewUrl} alt="Preview" className={styles.imagePreview} />
