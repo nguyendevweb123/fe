@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.chartBox {
+  width: fit-content;
+  padding: 1rem;;
+}
+
+.chartBox h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}

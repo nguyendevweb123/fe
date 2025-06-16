@@ -1,0 +1,71 @@
+.container {
+  width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+   background: #fff;
+   border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+}
+
+.section h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding-left: 10px;
+}
+
+.barRow {
+  margin-bottom: 1rem;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+.barRow span {
+  display: inline-block;
+  font-size: 14px;
+  width: 50%;
+   padding-left: 10px;
+    padding-right: 10px;
+}
+
+.progressBar {
+  height: 6px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.filler {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.cycleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+   padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  
+}
+
+.days {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.days span {
+  font-size: 12px;
+}

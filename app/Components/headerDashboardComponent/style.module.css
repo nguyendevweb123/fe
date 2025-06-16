@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.statusCards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.card p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.dotAccepted {
+  width: 10px;
+  height: 10px;
+  background-color: #00a86b;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dotContract {
+  width: 10px;
+  height: 10px;
+  background-color: #ffb200;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dotApproval {
+  width: 10px;
+  height: 10px;
+  background-color: #ff7c43;
+  border-radius: 50%;
+  margin-right: 10px;
+}

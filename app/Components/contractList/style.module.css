@@ -1,0 +1,61 @@
+/* style.module.css */
+
+.container {
+  background-color: #d9b1b1;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.table {
+  width: 100%;
+  border:1px solid;
+  border-radius: 5px;
+}
+
+/* Header row */
+.headerCell {
+  color: #020202;
+  font-weight: 1000;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+   border:1px solid;
+}
+
+/* Table row cell */
+.cell {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+   border:1px solid;
+}
+
+
+/* Status pill */
+.status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.active {
+  background-color: #00bfa5;
+}
+
+.draft {
+  background-color: #ff9800;
+}
+
+.inreview {
+  background-color: #1976d2;
+}
